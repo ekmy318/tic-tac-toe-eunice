@@ -1,1 +1,22 @@
 @import '~bootstrap/scss/bootstrap';
+
+nav {
+  background-color: grey;
+}
+
+footer {
+  background-color: green;
+}
+
+.success {
+  background-color: yellow;
+}
+
+.failure {
+  background-color: #F00;
+}
+
+.square {
+  height: 100px;
+  width: 100px;
+}

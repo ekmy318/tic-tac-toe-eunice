@@ -13,15 +13,40 @@
     </head>
     <body>
     <header>
-      <nav>
-        <form id="sign-in">
+      <nav class=row>
+        <img id="logo" alt="logo" class=col-6 src="#">
+        <form id="sign-in" class=col-6>
           <h2>Sign In</h2>
           <input type="email" name="credentials[email]" placeholder="Email" required>
           <input type="password" name="credentials[password]" placeholder="Password" required>
           <button>Sign In</button>
+          <h6 id="message">"test"</h6>
         </form>
       </nav>
     </header>
-    </header>
+
+    <div class="row pageInit">
+      <p id="instructions" class=col-6>
+          Instructions
+      </p>
+      <form id="sign-up" class=col-6>
+        <h2>Sign Up</h2>
+        <input type="email" name="credentials[email]" placeholder="Email" required>
+        <input type="password" name="credentials[password]" placeholder="Password" required>
+        <input type="password" name="credentials[password_confirmation]" placeholder="Confirmation Password" required>
+        <button>Sign Up</button>
+      </form>
+    </div>
+
+    <div class="pageGame">
+      <div id="top-left" class="square"></div>
+
+    </div>
+
+    <footer>
+      <p>
+        Footer content
+      </p>
+    </footer>
     </body>
 </html>
