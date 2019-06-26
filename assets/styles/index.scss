@@ -1,10 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 
 nav {
-  background-color: grey;
-}
-
-footer {
   background-color: green;
 }
 
@@ -17,6 +13,12 @@ footer {
 }
 
 .square {
-  height: 100px;
-  width: 100px;
+  align-items: center;
+  height: 20vh;
+  text-justify: center;
+  width: 15vw;
+
+  &:hover {
+    background-color: #D3D3D3;
+  }
 }

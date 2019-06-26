@@ -3,6 +3,7 @@
     <head>
       <title>Tic Tac Toe!</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -11,42 +12,44 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
+
     <body>
+    <div class="container-fluid">
     <header>
-      <nav class=row>
-        <img id="logo" alt="logo" class=col-6 src="#">
-        <form id="sign-in" class=col-6>
+      <nav class="row justify-content-end">
+        <!-- <img id="logo" alt="logo" src="#" class="col"> -->
+        <form id="sign-in">
           <h2>Sign In</h2>
           <input type="email" name="credentials[email]" placeholder="Email" required>
           <input type="password" name="credentials[password]" placeholder="Password" required>
           <button>Sign In</button>
-          <h6 id="message">"test"</h6>
+          <h6 id="loginMessage">"test"</h6>
+        </form>
+        <div class="w-100"></div>
+        <form id="sign-up">
+          <h2>Sign Up</h2>
+          <input type="email" name="credentials[email]" placeholder="Email" required>
+          <input type="password" name="credentials[password]" placeholder="Password" required>
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirmation Password" required>
+          <button>Sign Up</button>
         </form>
       </nav>
     </header>
 
-    <div class="row pageInit">
-      <p id="instructions" class=col-6>
-          Instructions
-      </p>
-      <form id="sign-up" class=col-6>
-        <h2>Sign Up</h2>
-        <input type="email" name="credentials[email]" placeholder="Email" required>
-        <input type="password" name="credentials[password]" placeholder="Password" required>
-        <input type="password" name="credentials[password_confirmation]" placeholder="Confirmation Password" required>
-        <button>Sign Up</button>
-      </form>
+      <div class="row justify-content-center pt-5">
+          <div id=0 class="square col-2 border border-dark"></div>
+          <div id=1 class="square col-2 border border-dark"></div>
+          <div id=2 class="square col-2 border border-dark"></div>
+          <div class="w-100"></div>
+          <div id=3 class="square col-2 border border-dark"></div>
+          <div id=4 class="square col-2 border border-dark"></div>
+          <div id=5 class="square col-2 border border-dark"></div>
+          <div class="w-100"></div>
+          <div id=6 class="square col-2 border border-dark"></div>
+          <div id=7 class="square col-2 border border-dark"></div>
+          <div id=8 class="square col-2 border border-dark"></div>
+      </div>
     </div>
-
-    <div class="pageGame">
-      <div id="top-left" class="square"></div>
-
-    </div>
-
-    <footer>
-      <p>
-        Footer content
-      </p>
-    </footer>
+    <p id="gameMessage" class="text-center text-danger"></p>
     </body>
 </html>
