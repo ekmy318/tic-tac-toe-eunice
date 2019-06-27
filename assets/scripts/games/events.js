@@ -1,8 +1,17 @@
 'use strict'
 
-// const api = require('./api')
+const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
+const getFormFields = require('../../../lib/get-form-fields')
+
+const onCreateGame = event => {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.createGame(data)
+    .then(ui.createGameSuccess)
+    .catch(ui.createGameFailure)
+}
 
 const onGameboard = events => {
   const target = $(events.target)
@@ -33,6 +42,7 @@ const onCheckWinner = () => {
 }
 
 module.exports = {
+  onCreateGame,
   onGameboard,
   onCheckWinner
 }

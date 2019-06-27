@@ -1,40 +1,55 @@
 'use strict'
 
 const config = require('./../config')
-
-const indexGames = function () {
-  return $.ajax({
-    url: config.apiUrl + '/games',
-    method: 'GET'
-  })
-}
+const store = require('../store')
 
 const createGame = function (data) {
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'POST',
-    data
+    data: '',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
-const showGame = function (id) {
+const updateGame = (index, value) => {
   return $.ajax({
-    url: config.apiUrl + '/games/' + id,
-    method: 'GET'
-  })
-}
-
-const updateGame = function (data) {
-  return $.ajax({
-    url: config.apiUrl + '/books/' + data.games.id,
+    url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
-    data
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'game': {
+        'cell': {
+          'index': index,
+          'value': value
+        },
+        'over': false
+      }
+    }
   })
 }
+
+// const indexGames = function () {
+//   return $.ajax({
+//     url: config.apiUrl + '/games',
+//     method: 'GET'
+//   })
+// }
+//
+// const showGame = function (id) {
+//   return $.ajax({
+//     url: config.apiUrl + '/games/' + id,
+//     method: 'GET'
+//   })
+// }
 
 module.exports = {
-  indexGames,
+  // indexGames,
   createGame,
-  showGame,
+  // showGame,
   updateGame
 }

@@ -1,4 +1,5 @@
 // const store = require('../store')
+const
 
 const boardClick = (target, xo) => {
   target.text(xo)
