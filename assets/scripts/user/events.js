@@ -27,8 +27,8 @@ const onGuest = event => {
   event.preventDefault()
   const guestInfo = {
     'credentials': {
-      'email': 'e@e',
-      'password': 'e'
+      'email': 'guest@guest',
+      'password': 'guest'
     }
   }
   api.signIn(guestInfo)
