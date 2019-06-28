@@ -33,7 +33,7 @@ const onGuest = event => {
   }
   api.signIn(guestInfo)
     .then(ui.signInSuccess)
-    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
 }
 
 const onChangePassword = event => {

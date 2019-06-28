@@ -27,7 +27,7 @@ const updateGame = (index, value) => {
           index: index,
           value: value
         },
-        over: ''
+        over: store.over
       }
     }
   })

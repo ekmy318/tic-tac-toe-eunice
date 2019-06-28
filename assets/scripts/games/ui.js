@@ -3,11 +3,17 @@ const store = require('../store')
 const createGameSuccess = gameData => {
   store.game = gameData.game
   store.over = false
-  console.log('now store is: ', store)
+  store.currentPlayer = 'X'
+
+  console.log('store after creategame is: ', store)
   $('#new-game').removeClass('hide')
   $('#gameboard').removeClass('hide')
   $('.square').text('')
   $('#message').text('')
+}
+
+const drawGame = () => {
+  $('#message').text('Draw!')
 }
 
 const createGameFailure = () => {
@@ -22,19 +28,25 @@ const invalidMove = () => {
   $('#message').text('Square taken!')
 }
 
+const moveSuccess = (currentTile, sign) => {
+  $(currentTile).text(sign)
+}
+
+const moveFailure = responseData => {
+  $('#message').text("Can't make this move")
+}
+
 const winnerMessage = () => {
   $('#message').text(`${store['previousPlayer']} wins! Click New Game to play again!`)
 }
-// const updateSuccess = responseData => {
-//   store.game = responseData.game
-//   store.user.token = responseData.user
-//   console.log('store is: ', store)
-// }
 
 module.exports = {
   createGameSuccess,
   createGameFailure,
   boardClick,
   invalidMove,
-  winnerMessage
+  moveFailure,
+  winnerMessage,
+  drawGame,
+  moveSuccess
 }

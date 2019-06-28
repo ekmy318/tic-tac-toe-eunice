@@ -15,6 +15,7 @@ const failureMessage = message => {
 const signUpSuccess = () => {
   successMessage('Sign up success')
   $('#sign-up').addClass('hide')
+  $('#guest-player').addClass('hide')
 }
 
 const signUpFailure = () => {
@@ -23,13 +24,16 @@ const signUpFailure = () => {
 
 const signInSuccess = (responseData) => {
   successMessage('Log in successful')
+  console.log('responseData is: ', responseData)
   store.user = responseData.user
-  console.log('store is: ', store)
+  console.log('store after signin: ', store)
+  console.log('responseData after store: ', responseData)
   $('#change-password').removeClass('hide')
   $('#sign-out').removeClass('hide')
   $('#new-game').removeClass('hide')
   $('#sign-up').addClass('hide')
   $('#sign-in').addClass('hide')
+  $('#guest-player').addClass('hide')
   $('form').trigger('reset')
 }
 
@@ -53,6 +57,7 @@ const signOutSuccess = () => {
   $('#sign-up').removeClass('hide')
   $('#sign-in').removeClass('hide')
   $('#gameboard').addClass('hide')
+  $('#guest-player').removeClass('hide')
 }
 
 const signOutFailure = () => {
