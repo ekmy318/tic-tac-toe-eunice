@@ -10,6 +10,7 @@ const createGameSuccess = gameData => {
   $('#gameboard').removeClass('hide')
   $('.square').text('')
   $('#message').text('')
+  $('#stats').removeClass('hide')
 }
 
 const drawGame = () => {
@@ -40,6 +41,15 @@ const winnerMessage = () => {
   $('#message').text(`${store['previousPlayer']} wins! Click New Game to play again!`)
 }
 
+const getGamesSucess = (responseData) => {
+  const num = responseData.games
+  $('#message').text(`You've played ${num.length} games.`)
+}
+
+const getGamesFailure = () => {
+  $('#message').text('Failed to get data')
+}
+
 module.exports = {
   createGameSuccess,
   createGameFailure,
@@ -48,5 +58,7 @@ module.exports = {
   moveFailure,
   winnerMessage,
   drawGame,
-  moveSuccess
+  moveSuccess,
+  getGamesSucess,
+  getGamesFailure
 }

@@ -33,12 +33,16 @@ const updateGame = (index, value) => {
   })
 }
 
-// const indexGames = function () {
-//   return $.ajax({
-//     url: config.apiUrl + '/games',
-//     method: 'GET'
-//   })
-// }
+const getGames = function () {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 //
 // const showGame = function (id) {
 //   return $.ajax({
@@ -48,8 +52,8 @@ const updateGame = (index, value) => {
 // }
 
 module.exports = {
-  // indexGames,
   createGame,
+  updateGame,
+  getGames
   // showGame,
-  updateGame
 }

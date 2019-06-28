@@ -54,10 +54,12 @@ const signOutSuccess = () => {
   $('#change-password').addClass('hide')
   $('#sign-out').addClass('hide')
   $('#new-game').addClass('hide')
+  $('#stats').addClass('hide')
   $('#sign-up').removeClass('hide')
   $('#sign-in').removeClass('hide')
   $('#gameboard').addClass('hide')
   $('#guest-player').removeClass('hide')
+
 }
 
 const signOutFailure = () => {

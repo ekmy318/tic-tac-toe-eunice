@@ -12,4 +12,5 @@ $(() => {
   $('#guest-player').on('click', userEvents.onGuest)
   $('#new-game').on('click', gameEvents.onCreateGame)
   $('.square').on('click', gameEvents.onUpdateGame)
+  $('#stats').on('click', gameEvents.onStats)
 })

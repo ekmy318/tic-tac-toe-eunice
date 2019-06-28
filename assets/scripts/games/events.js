@@ -5,6 +5,16 @@ const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields')
 const store = require('../store')
 
+const onStats = event => {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  api.getGames(formData)
+    .then(ui.getGamesSucess)
+    .then(console.log)
+    .catch(ui.getGamesFailure)
+}
+
 const onCreateGame = event => {
   event.preventDefault()
   const form = event.target
@@ -66,5 +76,6 @@ const onUpdateGame = event => {
 
 module.exports = {
   onCreateGame,
-  onUpdateGame
+  onUpdateGame,
+  onStats
 }
