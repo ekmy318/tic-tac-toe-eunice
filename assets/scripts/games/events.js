@@ -48,23 +48,21 @@ const onUpdateGame = event => {
         .then(ui.moveSuccess(event.target, store['previousPlayer']))
         .catch(ui.moveFailure)
       store.game.cells[id] = store['previousPlayer']
-      console.log('store after move: ', store)
     }
     if (checkWinner(0, 1, 2) || checkWinner(3, 4, 5) || checkWinner(6, 7, 8) ||
         checkWinner(0, 3, 6) || checkWinner(1, 4, 7) || checkWinner(2, 5, 8) ||
         checkWinner(0, 4, 8) || checkWinner(2, 4, 6)) {
-      store['over'] = true
+      store.over = true
       ui.winnerMessage()
       console.log('store after win is: ', store)
     }
-  }
+    if (!store.game.cells.every(e => e) === false) {
+      store.over = true
+      console.log('store after draw: ', store)
+      return ui.drawGame()
+    }
+  } else store.over = true
 }
-
-// const draw = () => {
-//   if (store[(game.cells)].length > 8 && store['over'] = false) {
-//     store['over'] = true
-//     ui.drawGame
-// }
 
 module.exports = {
   onCreateGame,

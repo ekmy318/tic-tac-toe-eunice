@@ -13,7 +13,7 @@ const createGameSuccess = gameData => {
 }
 
 const drawGame = () => {
-  $('#message').text('Draw!')
+  $('#message').text('Draw! Play Click New Game to play again!')
 }
 
 const createGameFailure = () => {
