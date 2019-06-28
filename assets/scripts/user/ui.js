@@ -3,21 +3,18 @@
 const store = require('../store')
 
 const successMessage = message => {
-  $('#auth-message').text(message)
-  $('#auth-message').removeClass('failure')
-  $('#auth-message').addClass('success')
+  $('#message').text(message)
   $('form').trigger('reset')
 }
 
 const failureMessage = message => {
-  $('#auth-message').text(message)
-  $('#auth-message').removeClass('success')
-  $('#auth-message').addClass('failure')
+  $('#message').text(message)
   $('form').trigger('reset')
 }
 
 const signUpSuccess = () => {
   successMessage('Sign up success')
+  $('#sign-up').addClass('hide')
 }
 
 const signUpFailure = () => {
@@ -25,8 +22,15 @@ const signUpFailure = () => {
 }
 
 const signInSuccess = (responseData) => {
-  successMessage('Sign in success')
+  successMessage('Log in successful')
   store.user = responseData.user
+  console.log('store is: ', store)
+  $('#change-password').removeClass('hide')
+  $('#sign-out').removeClass('hide')
+  $('#new-game').removeClass('hide')
+  $('#sign-up').addClass('hide')
+  $('#sign-in').addClass('hide')
+  $('form').trigger('reset')
 }
 
 const signInFailure = () => {
@@ -34,7 +38,7 @@ const signInFailure = () => {
 }
 
 const changePasswordSuccess = (responseData) => {
-  successMessage('Password change success')
+  successMessage('Password changed successfully')
 }
 
 const changePasswordFailure = () => {
@@ -43,10 +47,17 @@ const changePasswordFailure = () => {
 
 const signOutSuccess = () => {
   successMessage('Sign Out Success')
+  $('#change-password').addClass('hide')
+  $('#sign-out').addClass('hide')
+  $('#new-game').addClass('hide')
+  $('#sign-up').removeClass('hide')
+  $('#sign-in').removeClass('hide')
+  $('#gameboard').addClass('hide')
 }
 
 const signOutFailure = () => {
   failureMessage('Sign Out Failure')
+  $('.square').text('')
 }
 
 module.exports = {

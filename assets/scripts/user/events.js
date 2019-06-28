@@ -3,13 +3,14 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+// const gameEvents = require('../games/events')
 
 const onSignUp = event => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
   api.signUp(formData)
-    .then(ui.signUpSuccess) // gameboard view <div class="pageGame">
+    .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
 }
 
@@ -21,6 +22,20 @@ const onSignIn = event => {
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
 }
+
+const onGuest = event => {
+  event.preventDefault()
+  const guestInfo = {
+    'credentials': {
+      'email': 'e@e',
+      'password': 'e'
+    }
+  }
+  api.signIn(guestInfo)
+    .then(ui.signInSuccess)
+    .then(ui.signInSuccess)
+}
+
 const onChangePassword = event => {
   event.preventDefault()
   const form = event.target
@@ -29,6 +44,7 @@ const onChangePassword = event => {
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
 }
+
 const onSignOut = () => {
   event.preventDefault()
   api.signOut()
@@ -40,5 +56,6 @@ module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
-  onSignOut
+  onSignOut,
+  onGuest
 }

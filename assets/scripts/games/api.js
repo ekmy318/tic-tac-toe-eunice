@@ -3,11 +3,11 @@
 const config = require('./../config')
 const store = require('../store')
 
-const createGame = function (data) {
+const createGame = gameData => {
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'POST',
-    data: '',
+    data: gameData,
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
@@ -22,12 +22,12 @@ const updateGame = (index, value) => {
       Authorization: 'Token token=' + store.user.token
     },
     data: {
-      'game': {
-        'cell': {
-          'index': index,
-          'value': value
+      game: {
+        cell: {
+          index: index,
+          value: value
         },
-        'over': false
+        over: ''
       }
     }
   })
