@@ -4,8 +4,6 @@ const createGameSuccess = gameData => {
   store.game = gameData.game
   store.over = false
   store.currentPlayer = 'X'
-
-  console.log('store after creategame is: ', store)
   $('#new-game').removeClass('hide')
   $('#gameboard').removeClass('hide')
   $('.square').text('')

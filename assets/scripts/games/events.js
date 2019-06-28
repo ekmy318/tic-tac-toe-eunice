@@ -11,7 +11,6 @@ const onStats = event => {
   const formData = getFormFields(form)
   api.getGames(formData)
     .then(ui.getGamesSucess)
-    .then(console.log)
     .catch(ui.getGamesFailure)
 }
 
@@ -64,11 +63,9 @@ const onUpdateGame = event => {
         checkWinner(0, 4, 8) || checkWinner(2, 4, 6)) {
       store.over = true
       ui.winnerMessage()
-      console.log('store after win is: ', store)
     }
     if (!store.game.cells.every(e => e) === false) {
       store.over = true
-      console.log('store after draw: ', store)
       return ui.drawGame()
     }
   } else store.over = true
