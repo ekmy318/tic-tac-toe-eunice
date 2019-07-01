@@ -3,7 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
-// const gameEvents = require('../games/events')
+const store = require('../store')
 
 const onSignUp = event => {
   event.preventDefault()
@@ -50,6 +50,7 @@ const onSignOut = () => {
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
+  store.user = undefined
 }
 
 const onStats = () => {

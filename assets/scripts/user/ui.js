@@ -23,15 +23,32 @@ const signUpFailure = () => {
 }
 
 const signInSuccess = (responseData) => {
-  successMessage('Log in successful')
   store.user = responseData.user
-  $('#change-password').removeClass('hide')
-  $('#sign-out').removeClass('hide')
-  $('#new-game').removeClass('hide')
-  $('#sign-up').addClass('hide')
-  $('#sign-in').addClass('hide')
-  $('#guest-player').addClass('hide')
-  $('form').trigger('reset')
+  if (store.user.email === 'guest@guest') {
+    successMessage('Signed in as Guest Player')
+    $('#user').removeClass('hide')
+    $('#user').append('Guest Player')
+    $('#stats').addClass('hide')
+    $('#sign-up').addClass('hide')
+    $('#sign-in').addClass('hide')
+    $('#guest-player').addClass('hide')
+    $('#change-password-button').addClass('hide')
+    $('#sign-out').removeClass('hide')
+    $('#new-game').removeClass('hide')
+    $('form').trigger('reset')
+  } else {
+    successMessage(`Welcome back, ${store.user.email}!`)
+    $('#user').removeClass('hide')
+    $('#user').text(`Signed in as ${store.user.email}`)
+    $('#sign-out').removeClass('hide')
+    $('#new-game').removeClass('hide')
+    $('#change-password-button').removeClass('hide')
+    $('#stats').removeClass('hide')
+    $('#sign-up').addClass('hide')
+    $('#sign-in').addClass('hide')
+    $('#guest-player').addClass('hide')
+    $('form').trigger('reset')
+  }
 }
 
 const signInFailure = () => {
@@ -40,14 +57,20 @@ const signInFailure = () => {
 
 const changePasswordSuccess = (responseData) => {
   successMessage('Password changed successfully')
+  $('#change-password').addClass('hide')
 }
 
 const changePasswordFailure = () => {
   failureMessage('Password change failed')
 }
 
+const showChangePassword = () => {
+  event.preventDefault()
+  $('#change-password').removeClass('hide')
+}
+
 const signOutSuccess = () => {
-  successMessage('Sign Out Success')
+  successMessage('Successfully signed out. Hope you play again!')
   $('#change-password').addClass('hide')
   $('#sign-out').addClass('hide')
   $('#new-game').addClass('hide')
@@ -56,6 +79,7 @@ const signOutSuccess = () => {
   $('#sign-in').removeClass('hide')
   $('#gameboard').addClass('hide')
   $('#guest-player').removeClass('hide')
+  $('#user').addClass('hide')
 }
 
 const signOutFailure = () => {
@@ -71,5 +95,6 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  showChangePassword
 }
