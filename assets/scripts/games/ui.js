@@ -9,6 +9,9 @@ const createGameSuccess = gameData => {
   $('.square').text('')
   $('#message').text('')
   $('#stats').removeClass('hide')
+  if (store.user.email === 'guest@guest') {
+    $('#stats').addClass('hide')
+  }
 }
 
 const drawGame = () => {
