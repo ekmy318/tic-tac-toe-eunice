@@ -43,20 +43,20 @@ const onUpdateGame = event => {
       ui.invalidMove()
     } else {
       $('#mesage').text('')
-      if (store['currentPlayer'] === 'X') {
+      if (store.tokenA === 'X') {
         ui.boardClick(tile, 'X')
-        store['currentPlayer'] = 'O'
-        store['previousPlayer'] = 'X'
+        store.tokenA = 'O'
+        store.tokenB = 'X'
       } else {
         ui.boardClick(tile, 'O')
-        store['currentPlayer'] = 'X'
-        store['previousPlayer'] = 'O'
+        store.tokenA = 'X'
+        store.tokenB = 'O'
       }
-      $('#message').text(store['currentPlayer'] + "'s turn")
-      api.updateGame(id, store['previousPlayer'])
-        .then(ui.moveSuccess(event.target, store['previousPlayer']))
+      $('#message').text(`${store.tokenA}'s turn`)
+      api.updateGame(id, store.tokenB)
+        .then(ui.moveSuccess(event.target, store.tokenB))
         .catch(ui.moveFailure)
-      store.game.cells[id] = store['previousPlayer']
+      store.game.cells[id] = store.tokenB
     }
     if (checkWinner(0, 1, 2) || checkWinner(3, 4, 5) || checkWinner(6, 7, 8) ||
         checkWinner(0, 3, 6) || checkWinner(1, 4, 7) || checkWinner(2, 5, 8) ||

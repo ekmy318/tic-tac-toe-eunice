@@ -17,7 +17,6 @@ const signUpSuccess = responseData => {
   successMessage('Sign up success')
   $('#sign-up').addClass('hide')
   $('#guest-player').addClass('hide')
-  console.log('responseData to send to signinAPI: ', responseData)
   api.signIn(store.save)
     .then(signInSuccess)
 }
@@ -28,7 +27,6 @@ const signUpFailure = () => {
 
 const signInSuccess = (responseData) => {
   store.user = responseData.user
-  console.log('store after signin: ', store)
   if (store.user.email === 'guest@guest') {
     successMessage('Signed in as Guest Player')
     $('#user').removeClass('hide')
@@ -38,6 +36,7 @@ const signInSuccess = (responseData) => {
     $('#sign-in').addClass('hide')
     $('#guest-player').addClass('hide')
     $('#change-password-button').addClass('hide')
+    $('.instructions').addClass('hide')
     $('#sign-out').removeClass('hide')
     $('#new-game').removeClass('hide')
     $('form').trigger('reset')
@@ -48,6 +47,7 @@ const signInSuccess = (responseData) => {
     $('#sign-out').removeClass('hide')
     $('#new-game').removeClass('hide')
     $('#change-password-button').removeClass('hide')
+    $('.instructions').addClass('hide')
     $('#stats').removeClass('hide')
     $('#sign-up').addClass('hide')
     $('#sign-in').addClass('hide')
@@ -86,6 +86,7 @@ const signOutSuccess = () => {
   $('#guest-player').removeClass('hide')
   $('#user').text('')
   $('#user').addClass('hide')
+  $('.instructions').removeClass('hide')
 }
 
 const signOutFailure = () => {

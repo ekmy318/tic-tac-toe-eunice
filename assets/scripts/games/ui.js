@@ -3,7 +3,7 @@ const store = require('../store')
 const createGameSuccess = gameData => {
   store.game = gameData.game
   store.over = false
-  store.currentPlayer = 'X'
+  store.tokenA = 'X'
   $('#new-game').removeClass('hide')
   $('#gameboard').removeClass('hide')
   $('.square').text('')
@@ -39,7 +39,7 @@ const moveFailure = responseData => {
 }
 
 const winnerMessage = () => {
-  $('#message').text(`${store['previousPlayer']} wins! Click New Game to play again!`)
+  $('#message').text(`${store.tokenB} wins! Click New Game to play again!`)
 }
 
 const getGamesSucess = (responseData) => {

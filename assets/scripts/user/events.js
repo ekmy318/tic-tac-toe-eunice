@@ -19,7 +19,6 @@ const onSignIn = event => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
-  console.log('signin formData: ', formData)
   api.signIn(formData)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
@@ -53,7 +52,6 @@ const onSignOut = () => {
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
   store.user = undefined
-  console.log('store after signout: ', store)
 }
 
 module.exports = {
