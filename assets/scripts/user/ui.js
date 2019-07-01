@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store')
+const api = require('./api')
 
 const successMessage = message => {
   $('#message').text(message)
@@ -12,10 +13,13 @@ const failureMessage = message => {
   $('form').trigger('reset')
 }
 
-const signUpSuccess = () => {
+const signUpSuccess = responseData => {
   successMessage('Sign up success')
   $('#sign-up').addClass('hide')
   $('#guest-player').addClass('hide')
+  console.log('responseData to send to signinAPI: ', responseData)
+  api.signIn(store.save)
+    .then(signInSuccess)
 }
 
 const signUpFailure = () => {
@@ -24,10 +28,11 @@ const signUpFailure = () => {
 
 const signInSuccess = (responseData) => {
   store.user = responseData.user
+  console.log('store after signin: ', store)
   if (store.user.email === 'guest@guest') {
     successMessage('Signed in as Guest Player')
     $('#user').removeClass('hide')
-    $('#user').append('Guest Player')
+    $('#user').text('Signed in as Guest Player')
     $('#stats').addClass('hide')
     $('#sign-up').addClass('hide')
     $('#sign-in').addClass('hide')
@@ -37,7 +42,7 @@ const signInSuccess = (responseData) => {
     $('#new-game').removeClass('hide')
     $('form').trigger('reset')
   } else {
-    successMessage(`Welcome back, ${store.user.email}!`)
+    successMessage(`Welcome ${store.user.email}!`)
     $('#user').removeClass('hide')
     $('#user').text(`Signed in as ${store.user.email}`)
     $('#sign-out').removeClass('hide')
@@ -79,6 +84,7 @@ const signOutSuccess = () => {
   $('#sign-in').removeClass('hide')
   $('#gameboard').addClass('hide')
   $('#guest-player').removeClass('hide')
+  $('#user').text('')
   $('#user').addClass('hide')
 }
 
