@@ -43,14 +43,6 @@ const getGames = function () {
   })
 }
 
-//
-// const showGame = function (id) {
-//   return $.ajax({
-//     url: config.apiUrl + '/games/' + id,
-//     method: 'GET'
-//   })
-// }
-
 module.exports = {
   createGame,
   updateGame,

@@ -39,10 +39,6 @@ const signOut = () => {
   })
 }
 
-// const guestPlayer = () => {
-//
-// }
-
 module.exports = {
   signUp,
   signIn,

@@ -36,7 +36,7 @@ const checkWinner = (id1, id2, id3) => {
 
 const onUpdateGame = event => {
   event.preventDefault()
-  if (!store.game.over) {
+  if (!store.over) {
     const tile = $(event.target)
     const id = tile.attr('id')
     if (tile.text() === 'X' || tile.text() === 'O') {
@@ -61,14 +61,14 @@ const onUpdateGame = event => {
     if (checkWinner(0, 1, 2) || checkWinner(3, 4, 5) || checkWinner(6, 7, 8) ||
         checkWinner(0, 3, 6) || checkWinner(1, 4, 7) || checkWinner(2, 5, 8) ||
         checkWinner(0, 4, 8) || checkWinner(2, 4, 6)) {
-      store.game.over = true
+      store.over = true
       ui.winnerMessage()
     }
     if (!store.game.cells.every(e => e) === false) {
-      store.game.over = true
+      store.over = true
       return ui.drawGame()
     }
-  } else store.game.over = true
+  } else store.over = true
 }
 
 module.exports = {

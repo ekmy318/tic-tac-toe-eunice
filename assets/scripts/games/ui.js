@@ -2,24 +2,21 @@ const store = require('../store')
 
 const createGameSuccess = gameData => {
   store.game = gameData.game
-  store.game.over = false
+  store.over = false
   store.currentPlayer = 'X'
   $('#new-game').removeClass('hide')
   $('#gameboard').removeClass('hide')
   $('.square').text('')
   $('#message').text('')
   $('#stats').removeClass('hide')
-  if (store.user.email === 'guest@guest') {
-    $('#stats').addClass('hide')
-  }
 }
 
 const drawGame = () => {
-  $('#message').text('Draw! Play Click New Game to play again.')
+  $('#message').text('Draw! Play Click New Game to play again!')
 }
 
 const createGameFailure = () => {
-  $('#message').text('Failed to create new game.')
+  $('#message').text('Failed to create new game!')
 }
 
 const boardClick = (target, xo) => {
@@ -35,7 +32,7 @@ const moveSuccess = (currentTile, sign) => {
 }
 
 const moveFailure = responseData => {
-  $('#message').text('Move failed to save')
+  $('#message').text("Can't make this move")
 }
 
 const winnerMessage = () => {

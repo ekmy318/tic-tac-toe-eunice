@@ -53,18 +53,10 @@ const onSignOut = () => {
   store.user = undefined
 }
 
-const onStats = () => {
-  event.preventDefault()
-  api.indexGames()
-    .then(ui.statsSuccess)
-    .catch(ui.statFailure)
-}
-
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
   onSignOut,
-  onGuest,
-  onStats
+  onGuest
 }

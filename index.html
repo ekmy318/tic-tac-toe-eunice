@@ -17,7 +17,6 @@
     <div class="container-fluid">
     <header>
       <nav class="row">
-        <!-- <img id="logo" alt="logo" src="#" class="col"> -->
         <h3 id="user" class="hide">Signed in as: </h3>
         <form id="sign-up">
           <h4>Sign Up</h4>
@@ -54,7 +53,7 @@
         </form>
 
         <form id="stats" class="hide">
-          <button>Games Played</button>
+          <button>My Stats</button>
         </form>
 
         <form id="change-password-button" class="hide">
@@ -66,7 +65,7 @@
         </form>
       </nav>
     </header>
-      <div id="gameboard" class="row justify-content-center pt-5 hide">
+      <div id="gameboard" class="row">
           <div id=0 class="square col-2 border border-dark"></div>
           <div id=1 class="square col-2 border border-dark"></div>
           <div id=2 class="square col-2 border border-dark"></div>
@@ -81,5 +80,36 @@
       </div>
       <h3 id="message"></h3>
       </div>
+      <table class="table table justify-content-end">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Current</th>
+            <th scope="col">Lifetime</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Won</th>
+            <td id="currentWon"></td>
+            <td id="lifetimeWon"></td>
+          </tr>
+          <tr>
+            <th scope="row">Draw</th>
+            <td id="currentDraw"></td>
+            <td id="lifetimeDraw"></td>
+          </tr>
+          <tr>
+            <th scope="row">Lose</th>
+            <td id="currentLose"></td>
+            <td id="lifetimeLose"></td>
+          </tr>
+          <tr>
+            <th scope="row">Played</th>
+            <td id="currentPlayed"></td>
+            <td id="lifetimeplayed"></td>
+          </tr>
+        </tbody>
+      </table>
     </body>
 </html>
