@@ -76,7 +76,7 @@ const showChangePassword = () => {
 
 const signOutSuccess = () => {
   successMessage('Successfully signed out. Hope you play again!')
-  $('#change-password').addClass('hide')
+  $('#change-password-button').addClass('hide')
   $('#sign-out').addClass('hide')
   $('#new-game').addClass('hide')
   $('#stats').addClass('hide')
