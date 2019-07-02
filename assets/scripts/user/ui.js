@@ -28,7 +28,7 @@ const signUpFailure = () => {
 const signInSuccess = (responseData) => {
   store.user = responseData.user
   if (store.user.email === 'guest@guest') {
-    successMessage('Signed in as Guest Player')
+    successMessage(`Welcome Guest Player!`)
     $('#user').removeClass('hide')
     $('#user').text('Signed in as Guest Player')
     $('#stats').addClass('hide')

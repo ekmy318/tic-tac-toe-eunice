@@ -1,33 +1,55 @@
 @import '~bootstrap/scss/bootstrap';
 
-.userinfo {
-  background-color: green;
+.background {
+  background-image: url('https://i.imgur.com/ifWVNde.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
 }
 
-.success {
-  background-color: yellow;
+img {
+  height: 250px;
+  vertical-align: center;
 }
 
-.failure {
-  background-color: #F00;
+.button {
+  margin: 0.25em;
 }
 
-.square {
-  align-items: center;
-  height: 20vh;
-  text-justify: center;
-  width: 10vw;
-
-  &:hover {
-    background-color: #D3D3D3;
-  }
+.container {
+  display: flex;
+  justify-content: center;
 }
 
 .hide {
   display: none;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
+.square {
+  background-color: #f4f4f4;
+  opacity: 0.80;
+  font-size: 75px;
+  height: 20vh;
+  text-align: center;
+  vertical-align: middle;
+  width: 10vw;
+
+  &:hover {
+  background-color: #ecd49a;
+  opacity: 0.70
+  }
+}
+
+.userinfo {
+  background-color: #ecd49a;
+  color: #333333;
+  padding: 0.5em;
+}
+
+#message {
+  text-align: center;
+}
+
+#sign-up, #sign-in, #change-password {
+  padding-bottom: 0.5em;
 }
