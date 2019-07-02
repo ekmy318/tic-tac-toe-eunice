@@ -5,7 +5,7 @@ The first game most people learn how to play is tic-tac-toe. A simple game on a 
 
 That same simple game drawn on a piece of paper with game logic effortlessly deduced by the human brain does not translate to the same "simple" game to a developer. Everything from coding the individual cells in the grid to marking the correct sign on a click to implementing winner combinations must be thoughtfully and methodically written for the computer to understand. Additionally for this project, the developer is interacting with a third-party API so there's even more factors to consider when building the game!
 
-### The Development
+## The Development
 Best practice for new project starting point is wireframing! I grabbed my :pencil2: and sketched a general layout and flow of what the browser will render as the game is played.
 
 ![wireframe](https://i.imgur.com/Kn2JfDG.jpg?1)
@@ -18,7 +18,7 @@ With a general idea in mind, I started building the HTML and incorporated Javasc
 
 Most importantly, follow the golden rule: :mega: **CONSOLE LOG EVERYTHING.** :mega:
 
-### User Stories
+## User Stories
 - As a player, I want to be able to create a new account.
 - As a player, I want to be able to play a quick game with a guest signin.
 - As a signed in player, I want to be change my password.
@@ -26,9 +26,8 @@ Most importantly, follow the golden rule: :mega: **CONSOLE LOG EVERYTHING.** :me
 - As a player, I want to log out so other players can play the game in their account, and not mine.
 - As a player, I want to know if I won, lost or tied the game.
 
-### Future Iterations
+## Future Iterations
 - AI Bot: allow user to play against a computer AI.
 - Responsive Design: allow user functionality on mobile experience.
 - Custom Tokens
-- Automatic Sign In: trigger user to sign in automatically after signing up.
 - Session Data: Keep track of multiple game rounds within one session with a win counter.
