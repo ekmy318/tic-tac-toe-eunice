@@ -42,7 +42,7 @@ const onUpdateGame = event => {
     if (tile.text() === 'X' || tile.text() === 'O') {
       ui.invalidMove()
     } else {
-      $('#mesage').text('')
+      $('#message').text('')
       if (store.tokenA === 'X') {
         ui.boardClick(tile, 'X')
         store.tokenA = 'O'
