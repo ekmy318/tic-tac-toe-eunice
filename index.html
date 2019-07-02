@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tic Tac Toe!</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+
+    <body>
+    <header>
+      <div class="container-fluid">
+        <div class="userinfo row">
+          <h3 id="user" class="hide"></h3>
+          <form id="sign-up">
+            <h4>Sign Up</h4>
+            <input type="email" name="credentials[email]" placeholder="Email" required>
+            <input type="password" name="credentials[password]" placeholder="Password" required>
+            <input type="password" name="credentials[password_confirmation]" placeholder="Confirmation Password" required>
+            <button class="btn btn-success">Sign Up</button>
+          </form>
+
+          <div class="w-100"></div>
+          <form id="sign-in">
+            <h4>Sign In</h4>
+            <input type="email" name="credentials[email]" placeholder="Email" required>
+            <input type="password" name="credentials[password]" placeholder="Password" required>
+            <button class="btn btn-success">Sign In</button>
+          </form>
+
+          <div class="w-100"></div>
+          <form id="change-password" class="hide">
+            <h4>Change Password</h4>
+            <input type="password" name="passwords[old]" placeholder="Old Password" required>
+            <input type="password" name="passwords[new]" placeholder="New Password" required>
+            <button class="button btn btn-success">Change Password</button>
+          </form>
+
+          <div class="w-100"></div>
+          <form id="guest-player">
+            <button class="btn btn-success">Guest Player</button>
+          </form>
+
+          <form id="new-game" class="hide">
+            <button class="button btn btn-success">New Game</button>
+          </form>
+
+          <form id="stats" class="hide">
+            <button class="button btn btn-success">My Stats</button>
+          </form>
+
+          <form id="change-password-button" class="hide">
+            <button class="button btn btn-success">Change Password</button>
+          </form>
+
+          <form id="sign-out" class="hide">
+            <button class="button btn btn-success">Sign Out</button>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="background">
+      <div id="gameboard" class="row justify-content-center align-items-center pt-5 pb-5 hide">
+          <div id=0 class="square col-2 border border-dark"></div>
+          <div id=1 class="square col-2 border border-dark"></div>
+          <div id=2 class="square col-2 border border-dark"></div>
+          <div class="w-100"></div>
+          <div id=3 class="square col-2 border border-dark"></div>
+          <div id=4 class="square col-2 border border-dark"></div>
+          <div id=5 class="square col-2 border border-dark"></div>
+          <div class="w-100"></div>
+          <div id=6 class="square col-2 border border-dark"></div>
+          <div id=7 class="square col-2 border border-dark"></div>
+          <div id=8 class="square col-2 border border-dark"></div>
+      </div>
+      <h3 id="message"></h3>
+    </div>
+    </body>
+</html>
