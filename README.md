@@ -1,9 +1,15 @@
 # :x::o: Tic-Tac-Toe :o::x:
-*Interactive SPA game application utilizing HTML, CSS/SCSS, Javascript, jQuery and API.*
-
 The first game most people learn how to play is tic-tac-toe. A simple game on a 3x3 grid with the winning goal of getting the player's mark three in a row horizontally, vertically or diagonally. (Taking turns, of course!)
 
 That same simple game drawn on a piece of paper with game logic effortlessly deduced by the human brain does not translate to the same "simple" game to a developer. Everything from coding the individual cells in the grid to marking the correct sign on a click to implementing winner combinations must be thoughtfully and methodically written for the computer to understand. Additionally for this project, the developer is interacting with a third-party API so there's even more factors to consider when building the game!
+
+## Technologies Used
+- Javascript
+- HTML
+- AJAX
+- jQuery
+- CSS/SCSS
+- Bootstrap
 
 ## The Development
 Best practice for new project starting point is wireframing! I grabbed my :pencil2: and sketched a general layout and flow of what the browser will render as the game is played.
